@@ -28,6 +28,7 @@ static bool is_cf(unsigned int id)
     switch ( id )
     {
         case X86_INS_JA:
+        case X86_INS_JAE:
         case X86_INS_JBE:
         case X86_INS_JB:
         case X86_INS_JCXZ:
@@ -49,6 +50,8 @@ static bool is_cf(unsigned int id)
         case X86_INS_JS:
         case X86_INS_CALL:
         case X86_INS_RET:
+        case X86_INS_RETF:
+        case X86_INS_RETFQ:
         case X86_INS_INT3:
             return true;
         default:
