@@ -38,12 +38,16 @@ typedef enum loop_exit_condition {
     STOP
 } loop_exit_condition_t;
 
-static const char *exit_cond_str[] = {
+static const char *exit_cond_strings[] = {
     [SIGNAL] = "Signal",
     [ERROR] = "Error",
     [TIMEOUT] = "Timeout",
     [STOP] = "Stop"
 };
+
+static inline const char *exit_cond_str(loop_exit_condition_t c) {
+    return exit_cond_strings[c];
+}
 
 loop_exit_condition_t loop_vmi(vmi_t *vmi, unsigned int timeout, bool *stop);
 

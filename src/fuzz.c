@@ -1,15 +1,5 @@
 #include "private.h"
 
-static const char* exit_reason(int interrupt)
-{
-    if ( interrupt < 0 )
-        return "signal";
-    if ( interrupt == 0 )
-        return "timeout";
-
-    return "deadend";
-}
-
 static bool fuzz_iterate(vmi_t *vmi, uint32_t fork_domid, uint64_t pa, uint64_t *mem, bool *stop)
 {
     if ( mem )
@@ -45,7 +35,7 @@ static bool fuzz_iterate(vmi_t *vmi, uint32_t fork_domid, uint64_t pa, uint64_t 
 
     printf("\t - VM Fork memory used: %lu kbyte\n", info.nr_pages * 4096 / 1024);
     printf("\t - Reset time: %f\n", g_timer_elapsed(timer, NULL));
-    printf("\t - Exit condition: %s\n", exit_cond_str[exit_cond]);
+    printf("\t - Exit condition: %s\n", exit_cond_str(exit_cond));
     printf("\t -------------------\n");
 
     g_timer_destroy(timer);

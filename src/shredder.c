@@ -28,7 +28,7 @@ gint gint64_compare(gconstpointer ptr_a, gconstpointer ptr_b)
     return -1;
 }
 
-static void find_existing_processes(shredder_t *shredder)
+/*static void find_existing_processes(shredder_t *shredder)
 {
     vmi_instance_t vmi = shredder->vmi->libvmi;
     GHashTable *processes = shredder->processes;
@@ -84,7 +84,7 @@ static void find_existing_processes(shredder_t *shredder)
         free(name);
 #endif
     } while ( 1 );
-}
+}*/
 
 static event_response_t int3_cb(vmi_instance_t vmi, vmi_event_t *event)
 {
